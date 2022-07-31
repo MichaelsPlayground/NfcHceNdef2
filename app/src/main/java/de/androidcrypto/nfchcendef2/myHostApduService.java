@@ -12,6 +12,8 @@ import android.view.Gravity;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
@@ -155,12 +157,13 @@ public class myHostApduService extends HostApduService {
             NDEF_URI_BYTES = getNdefMessage(intent.getStringExtra("ndefMessage"));
             NDEF_URI_LEN = BigInteger.valueOf(NDEF_URI_BYTES.length).toByteArray();
 
+            /* as there is a timer we should not do a toast
             Context context = getApplicationContext();
             CharSequence text = "Your NDEF text has been set!";
             int duration = Toast.LENGTH_SHORT;
             Toast toast = Toast.makeText(context, text, duration);
             toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
+            toast.show();*/
         }
 
         //Log.i(TAG, "onStartCommand() | NDEF" + NDEF_URI.toString());
@@ -284,4 +287,5 @@ public class myHostApduService extends HostApduService {
     public void onDeactivated(int reason) {
         Log.i(TAG, "onDeactivated() Fired! Reason: " + reason);
     }
+
 }

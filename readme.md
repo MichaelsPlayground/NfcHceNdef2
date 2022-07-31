@@ -6,6 +6,50 @@ Visa-AID:   A0000000031010
 
 Sample AID: F0394148148100
 
+```plaintext
+<aid-group android:description="@string/aiddescription"
+        android:category="other">
+        <aid-filter android:name="F0394148148100" />
+        <aid-filter android:name="A0000000031010" />
+    </aid-group>
+```
+
+ORG apduservice.xml
+```plaintext
+    <aid-group android:description="@string/aiddescription"
+        android:category="other">
+        <!-- Visa Proximity Payment System Environment - PPSE (2PAY.SYS.DDF01) -->
+        <aid-filter android:name="325041592E5359532E4444463031" />
+        <!-- VISA Debit/Credit (Classic)  -->
+        <aid-filter android:name="A0000000031010" />
+        <!-- VISA Credit -->
+        <aid-filter android:name="A000000003101001" />
+        <!-- VISA Debit -->
+        <aid-filter android:name="A000000003101002" />
+        <!-- VISA Electron (Debit) -->
+        <aid-filter android:name="A0000000032010" />
+        <!-- V PAY -->
+        <aid-filter android:name="A0000000032020" />
+        <!-- VISA Interlink -->
+        <aid-filter android:name="A0000000033010" />
+        <!-- MasterCard PayPass -->
+        <aid-filter android:name="A00000000401" />
+        <!-- MasterCard Credit -->
+        <aid-filter android:name="A0000000041010" />
+        <!-- American Express -->
+        <aid-filter android:name="A000000025" />
+        <!-- BRADESCO -->
+        <aid-filter android:name="F0000000030001" />
+        <!-- Sample for the demo application -->
+        <aid-filter android:name="F0394148148100" />
+        <!-- NFC type 4 NDEF -->
+        <aid-filter android:name="D2760000850101" />
+    </aid-group>
+```
+
+
+
+
 # Android Host Card Emulation of a NFC Forum Type-4 tag
 
 This example emulates a NFC Forum Type-4 tag with an a single NDEF record (RTD_TEXT). The project uses aid-filter F0394148148100 (which is an example that is defined in the Android documentation) for the APDU SELECT command.
